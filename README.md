@@ -1,9 +1,9 @@
-safe-redirect [![Build Status](https://secure.travis-ci.org/fengmk2/safe-redirect.png)](http://travis-ci.org/fengmk2/safe-redirect) [![Dependencies](http://david-dm.org/fengmk2/safe-redirect.png)](http://david-dm.org/fengmk2/safe-redirect)
+safe-redirect [![Build Status](https://secure.travis-ci.org/fengmk2/safe-redirect.png)](http://travis-ci.org/fengmk2/safe-redirect)
 =======
 
 ![logo](https://raw.github.com/fengmk2/safe-redirect/master/logo.png)
 
-Safe redirect middleware for connect
+Safe redirect middleware for connect.
 
 * jscoverage: [100%](http://fengmk2.github.com/coverage/safe-redirect.html)
 
