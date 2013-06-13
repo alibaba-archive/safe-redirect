@@ -47,9 +47,23 @@ describe('safe-redirect.test.js', function () {
     .expect('Location', 'http://test.fengmk2.com/bar', done);
   });
 
+  it('should /r?k=shu_bottom&url=http%3A%2F%2Fshu.fengmk2.com%2F%3Ffrom%3Dcubesearch_bottom?spm=0.0.0.0.8b8OCY&file=r?k=shu_bottom&url=http%3A%2F%2Fshu.fengmk2.com%2F%3Ffrom%3Dcubesearch_bottom 302 to http://shu.fengmk2.com/?from=cubesearch_bottom?spm=0.0.0.0.8b8OCY',
+  function (done) {
+    request(app)
+    .get('/r?k=shu_bottom&url=http%3A%2F%2Fshu.fengmk2.com%2F%3Ffrom%3Dcubesearch_bottom?spm=0.0.0.0.8b8OCY&file=r?k=shu_bottom&url=http%3A%2F%2Fshu.fengmk2.com%2F%3Ffrom%3Dcubesearch_bottom')
+    .expect(302)
+    .expect('Location', 'http://shu.fengmk2.com/?from=cubesearch_bottom?spm=0.0.0.0.8b8OCY', done);
+  });
+
   it('should /r?url= 404', function (done) {
     request(app)
     .get('/r?url=')
+    .expect(404, done);
+  });
+
+  it('should /r?url=foo&url=bar 404', function (done) {
+    request(app)
+    .get('/r?url=foo&url=bar')
     .expect(404, done);
   });
 
