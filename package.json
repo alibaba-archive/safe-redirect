@@ -23,6 +23,8 @@
     "should": "*",
     "blanket": "*",
     "travis-cov": "*",
+    "coveralls": "*",
+    "mocha-lcov-reporter": "*",
     "mocha": "*"
   },
   "repository": {
