@@ -19,13 +19,13 @@
   },
   "devDependencies": {
     "connect": "2.26.0",
-    "supertest": "*",
-    "should": "*",
-    "blanket": "*",
-    "travis-cov": "*",
-    "coveralls": "*",
-    "mocha-lcov-reporter": "*",
-    "mocha": "*"
+    "supertest": "0.14.0",
+    "should": "4.0.4",
+    "blanket": "1.1.6",
+    "travis-cov": "0.2.5",
+    "coveralls": "2.11.2",
+    "mocha-lcov-reporter": "0.0.1",
+    "mocha": "1.21.4"
   },
   "repository": {
     "type": "git",
