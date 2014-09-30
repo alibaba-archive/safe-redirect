@@ -1,4 +1,4 @@
-safe-redirect [![Build Status](https://secure.travis-ci.org/node-modules/fengmk2/safe-redirect.png)](http://travis-ci.org/node-modules/fengmk2/safe-redirect) [![Coverage Status](https://coveralls.io/repos/fengmk2/safe-redirect/badge.png)](https://coveralls.io/r/fengmk2/safe-redirect)
+safe-redirect [![Build Status](https://secure.travis-ci.org/node-modules/safe-redirect.png)](http://travis-ci.org/node-modules/safe-redirect) [![Coverage Status](https://coveralls.io/repos/fengmk2/safe-redirect/badge.png)](https://coveralls.io/r/fengmk2/safe-redirect)
 =======
 
 ![logo](https://raw.github.com/fengmk2/safe-redirect/master/logo.png)
