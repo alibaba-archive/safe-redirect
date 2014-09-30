@@ -18,7 +18,7 @@
   "dependencies": {
   },
   "devDependencies": {
-    "connect": "*",
+    "connect": "2.26.0",
     "supertest": "*",
     "should": "*",
     "blanket": "*",
