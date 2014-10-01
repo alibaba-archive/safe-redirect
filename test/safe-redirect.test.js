@@ -23,7 +23,7 @@ describe('safe-redirect.test.js', function () {
     }).should.throw("Cannot read property 'field' of undefined");
     (function () {
       redirect({matchDomain: 123});
-    }).should.throw("options.matchDomain should be string or RegExp");
+    }).should.throw('matchDomain should be string or RegExp (or and array of)');
   });
   
   it('should /r?url=http://foo.fengmk2.com/bar 302 to http://foo.fengmk2.com/bar', function (done) {
