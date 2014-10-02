@@ -3,7 +3,7 @@ safe-redirect [![Build Status](https://secure.travis-ci.org/node-modules/safe-re
 
 ![logo](https://raw.github.com/fengmk2/safe-redirect/master/logo.png)
 
-Safe redirect middleware for connect.
+Safe redirect middleware for connect 2. (Connect 3 is coming.)
 
 ## Install
 
@@ -25,14 +25,36 @@ var redirect = require('safe-redirect');
 var app = connect();
 app.use(connect.query());
 
+// allow redirects to fengmk2.com only
 app.use('/r', redirect({
   field: 'url',
   matchDomain: 'fengmk2.com', // also support `RegExp`: /fengmk2\.com$/
 }));
 
+// allow redirects to test.fengmk2.com only
 app.use('/redirect', redirect({
   field: 'url',
   matchDomain: /^test\.fengmk2\.com$/,
+}));
+
+// allow redirects to stdarg.com and fengmk2.com
+app.use('/r', redirect({
+  field: 'url',
+  matchDomain: [ 'fengmk2.com', 'stdarg.com' ] // also support `RegExp`: /fengmk2\.com$/
+}));
+
+// allow redirects to test.fengmk2.com and test.stdarg.com
+app.use('/redirect', redirect({
+  field: 'url',
+  matchDomain: [ /^test\.fengmk2\.com$/, /^test\.stdarg\.com$/ ]
+}));
+
+// allow redirects to fengmk2.com only and only allow absoute URI paths,
+// e.g. /some/path is okay, but some/path and /some/../path are not allowed
+app.use('/r', redirect({
+  field: 'url',
+  absolutePaths: true,
+  matchDomain: 'fengmk2.com', // also support `RegExp`: /fengmk2\.com$/
 }));
 
 app.listen(1984);

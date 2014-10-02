@@ -3,13 +3,11 @@
  * Copyright(c) 2013 fengmk2 <fengmk2@gmail.com>
  * MIT Licensed
  */
-
-"use strict";
+'use strict';
 
 /**
  * Module dependencies.
  */
-
 var connect = require('connect');
 var redirect = require('../');
 

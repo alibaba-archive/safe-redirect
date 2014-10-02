@@ -18,10 +18,16 @@ var request = require('supertest');
 
 describe('safe-redirect.test.js with app', function () {
 
-  it('should throw error when matchDomain type error', function () {
+  it('should throw error when there is no options object parameter', function () {
     (function () {
       redirect();
-    }).should.throw("Cannot read property 'field' of undefined");
+    }).should.throw('redirect requires an options object');
+  });
+
+  it('should throw error when options parameter has no matchDomain', function () {
+    (function () {
+      redirect({});
+    }).should.throw('matchDomain should be string or RegExp (or an array of)');
     (function () {
       redirect({matchDomain: 123});
     }).should.throw('matchDomain should be string or RegExp (or an array of)');
@@ -36,7 +42,7 @@ describe('safe-redirect.test.js with app', function () {
 
   it('should /r?url=encodeURIComponent("http://foo.fengmk2.com/bar") 302 to http://foo.fengmk2.com/bar', function (done) {
     request(app)
-    .get('/r?url=' + encodeURIComponent("http://foo.fengmk2.com/bar"))
+    .get('/r?url=' + encodeURIComponent('http://foo.fengmk2.com/bar'))
     .expect(302)
     .expect('Location', 'http://foo.fengmk2.com/bar', done);
   });
@@ -94,7 +100,7 @@ describe('safe-redirect.test.js with app', function () {
 
   it('should /r?url=localhost:1984/r?url=encodeURIComponent("http://foo.fengmk2mock.com/bar") 404', function (done) {
     request(app)
-    .get('/r?url=' + encodeURIComponent("http://foo.fengmk2mock.com/bar"))
+    .get('/r?url=' + encodeURIComponent('http://foo.fengmk2mock.com/bar'))
     .expect(404, done)
   });
 
@@ -208,13 +214,13 @@ describe('safe-redirect.test.js with app2', function () {
 
   it('should /r?url=localhost:1984/r?url=encodeURIComponent("http://foo.fengmk2mock.com/bar") 404', function (done) {
     request(app2)
-    .get('/r?url=' + encodeURIComponent("http://foo.fengmk2mock.com/bar"))
+    .get('/r?url=' + encodeURIComponent('http://foo.fengmk2mock.com/bar'))
     .expect(404, done)
   });
 
   it('should /r?url=localhost:1984/r?url=encodeURIComponent("http://foo.stdargmock.com/bar") 404', function (done) {
     request(app2)
-    .get('/r?url=' + encodeURIComponent("http://foo.stdargmock.com/bar"))
+    .get('/r?url=' + encodeURIComponent('http://foo.stdargmock.com/bar'))
     .expect(404, done)
   });
 
