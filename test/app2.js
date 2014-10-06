@@ -18,7 +18,8 @@ app.use(connect.query());
 
 app.use('/r', redirect({
   field: 'url',
-  matchDomain: [ 'fengmk2.com', 'stdarg.com' ] // also support `RegExp`: /fengmk2\.com$/
+  matchDomain: [ 'fengmk2.com', 'stdarg.com' ], // also support `RegExp`: /fengmk2\.com$/
+  absolutePaths: true
 }));
 
 app.use('/redirect', redirect({

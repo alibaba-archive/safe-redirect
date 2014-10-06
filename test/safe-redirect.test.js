@@ -127,11 +127,19 @@ describe('safe-redirect.test.js with app2', function () {
     .expect('Location', 'http://foo.fengmk2.com/bar', done);
   });
 
-  it('should /r?url=http://foo.stdarg.com/bar 302 to http://foo.stdarg.com/bar', function (done) {
+  // Now we test the matchDomain array case
+  it('should /r?url=http://foo.fengmk2.com/bar 302 to http://foo.fengmk2.com/bar', function (done) {
     request(app2)
-    .get('/r?url=http://foo.stdarg.com/bar')
+    .get('/r?url=http://foo.fengmk2.com/bar')
     .expect(302)
-    .expect('Location', 'http://foo.stdarg.com/bar', done);
+    .expect('Location', 'http://foo.fengmk2.com/bar', done);
+  });
+
+  it('should /r?url=http://foo.stdarg.com/bar 302 to http://foo.stdarg.com/../bar', function (done) {
+    request(app2)
+    .get('/r?url=http://foo.stdarg.com/../bar')
+    .expect(404, done);
+    //.expect('Location', 'http://foo.stdarg.com/../bar', done);
   });
 
   it('should /redirect?url=http://test.fengmk2.com/bar 302 to http://test.fengmk2.com/bar', function (done) {
